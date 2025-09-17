@@ -1,0 +1,35 @@
+:root {
+    --primary-bg: #010108;
+    --secondary-bg: #100821;
+    --primary-text: #EAEAEA;
+    --accent-cyan: #00FFFF;
+    --accent-magenta: #FF00FF;
+    --accent-orange: #FFA500;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
