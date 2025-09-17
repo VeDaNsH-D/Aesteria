@@ -1,0 +1,283 @@
+/* CSS Variables for the Color Palette */
+:root {
+    --primary-bg: #010108;
+    --secondary-bg: #100821;
+    --primary-text: #EAEAEA;
+    --accent-cyan: #00FFFF;
+    --accent-magenta: #FF00FF;
+    --accent-orange: #FFA500;
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    cursor: none; /* Hide default cursor */
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-cyan);
+    border-radius: 50%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: transform 0.1s ease-out;
+    z-index: 9999;
+}
+
+/* Pre-Loader */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-bg);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+.terminal {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+}
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink { from, to { opacity: 1 } 50% { opacity: 0 } }
+
+/* Main Content (hidden initially) */
+#main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, var(--secondary-bg) 0%, var(--primary-bg) 70%);
+    z-index: -1;
+    /* Add subtle animated noise/particle background here */
+}
+
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    color: white;
+    text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
+    margin: 0;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    color: var(--accent-magenta);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    text-shadow: 0 0 5px var(--accent-magenta);
+}
+
+.hero-content h3 {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 30px;
+    border: 2px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+.cta-button:hover {
+    background-color: var(--accent-cyan);
+    color: var(--primary-bg);
+    box-shadow: 0 0 20px var(--accent-cyan);
+}
+
+/* General Content Section Styling */
+.content-section {
+    padding: 100px 0;
+    opacity: 0; /* For scroll animation */
+    transform: translateY(50px); /* For scroll animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.content-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--primary-text);
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+.about-text {
+    flex: 1;
+}
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 300;
+}
+.stats {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+.stat-item h4 {
+    color: var(--accent-magenta);
+    font-size: 1rem;
+    font-weight: 400;
+}
+.stat-item p {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    margin-top: 5px;
+}
+.about-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wireframe-sphere {
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--accent-cyan);
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 20s linear infinite;
+}
+.wireframe-sphere::before, .wireframe-sphere::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--accent-cyan);
+    border-radius: 50%;
+}
+.wireframe-sphere::before { width: 100%; height: 50%; }
+.wireframe-sphere::after { width: 50%; height: 100%; }
+@keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Events Section */
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--accent-magenta);
+    color: var(--accent-magenta);
+    padding: 10px 20px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--accent-magenta);
+    color: var(--primary-bg);
+    box-shadow: 0 0 15px var(--accent-magenta);
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+.event-card {
+    height: 250px;
+    background: var(--secondary-bg);
+    border: 1px solid #2a1f44;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); /* Hexagon */
+    cursor: pointer;
+}
+.event-card:hover {
+    transform: scale(1.05);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px var(--accent-cyan);
+}
+.event-card-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+}
+.event-card-content p {
+    color: #aaa;
+    margin-top: 10px;
+}
+
+/* Footer */
+.footer-section {
+    padding: 40px 0;
+    border-top: 1px solid #2a1f44;
+    text-align: center;
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
