@@ -65,8 +65,10 @@ const EventsGrid = styled.div`
 
 const EventCard = styled.div`
   height: 250px;
-  background: var(--primary-bg);
-  border: 1px solid #2a1f44;
+  background: rgba(16, 8, 33, 0.5); // Semi-transparent background
+  backdrop-filter: blur(10px); // The "frost" effect
+  -webkit-backdrop-filter: blur(10px); // For Safari
+  border: 1px solid rgba(0, 255, 255, 0.2); // A subtle border
   display: flex;
   flex-direction: column;
   justify-content: center;

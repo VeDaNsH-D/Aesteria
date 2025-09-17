@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { gsap } from 'gsap';
 import { useEffect, useRef } from 'react';
+import ThreeScene from './ThreeScene';
 
 const HeroContainer = styled.section`
   height: 100vh;
@@ -12,6 +13,14 @@ const HeroContainer = styled.section`
   position: relative;
   overflow: hidden;
   background: radial-gradient(ellipse at center, var(--secondary-bg) 0%, var(--primary-bg) 70%);
+`;
+
+const HeroContent = styled.div`
+  position: relative;
+  z-index: 2; // Make sure content is above the 3D scene
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const HeroTitle = styled.h1`
@@ -74,12 +83,13 @@ const HeroSection = () => {
 
   return (
     <HeroContainer>
-      <div ref={containerRef}>
+      <ThreeScene />
+      <HeroContent ref={containerRef}>
         <HeroTitle>AETHERIA 2025</HeroTitle>
         <HeroSubtitle>DECODE THE PARADIGM</HeroSubtitle>
         <HeroInfo>OCTOBER 24-26, 2025 // SOLAPUR, MAHARASHTRA</HeroInfo>
         <CTAButton href="#about">[ ENTER THE NEXUS ]</CTAButton>
-      </div>
+      </HeroContent>
     </HeroContainer>
   );
 };
