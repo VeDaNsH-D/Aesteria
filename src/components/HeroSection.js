@@ -87,7 +87,7 @@ const HeroSection = () => {
       <HeroContent ref={containerRef}>
         <HeroTitle>AETHERIA 2025</HeroTitle>
         <HeroSubtitle>DECODE THE PARADIGM</HeroSubtitle>
-        <HeroInfo>OCTOBER 24-26, 2025 // SOLAPUR, MAHARASHTRA</HeroInfo>
+        <HeroInfo>OCTOBER 24-26, 2025 // CSI SPIT</HeroInfo>
         <CTAButton href="#about">[ ENTER THE NEXUS ]</CTAButton>
       </HeroContent>
     </HeroContainer>
