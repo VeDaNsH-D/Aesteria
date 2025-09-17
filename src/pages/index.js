@@ -8,6 +8,7 @@ import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import EventsSection from '../components/EventsSection';
 import CustomCursor from '../components/CustomCursor';
+import ParticleBackground from '../components/ParticleBackground';
 
 const Main = styled.main`
   opacity: 0;
@@ -30,6 +31,7 @@ export default function Home() {
       </Head>
 
       <CustomCursor />
+      <ParticleBackground />
 
       {loading ? (
         <Preloader onCompleted={() => setLoading(false)} />
