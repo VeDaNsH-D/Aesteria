@@ -22,6 +22,26 @@ const Main = styled.main`
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
+  // Add this useEffect to handle the audio
+  useEffect(() => {
+    if (!loading) {
+      const audio = new Audio('/ambient.mp3');
+      audio.loop = true;
+      audio.volume = 0.2;
+      // Wait for user interaction to play audio to comply with browser policies
+      const playAudio = () => {
+        audio.play().catch(error => console.log("User interaction needed to play audio."));
+        document.body.removeEventListener('click', playAudio);
+      };
+      document.body.addEventListener('click', playAudio);
+
+      return () => {
+        audio.pause();
+        document.body.removeEventListener('click', playAudio);
+      };
+    }
+  }, [loading]);
+
   return (
     <>
       <Head>
